@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane cacheShape="false" centerShape="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="632.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <children>
+      <TabPane layoutX="-1.0" layoutY="-1.0" prefHeight="599.0" prefWidth="399.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab fx:id="editItems" closable="false" text="Edit Items">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="556.0" prefWidth="632.0">
+                           <children>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="378.0" prefWidth="632.0">
+                                 <content>
+                                    <TableView fx:id="editTable" editable="true" prefHeight="356.0" prefWidth="632.0">
+                                    	<placeholder>
+									        <Label text="Add items or load from a saved list" />
+									    </placeholder>
+                                      <columns>
+                                        <TableColumn fx:id="eColumnItemName" editable="false" prefWidth="190" resizable="false" sortable="false" text="Item Name" />
+                                        <TableColumn fx:id="eColumnQuantity" editable="true" prefWidth="190" resizable="false" sortable="false" text="Quantity" />
+                                        <TableColumn fx:id="eColumnPriority" editable="true" prefWidth="200" resizable="false" sortable="false" text="Priority" />
+                                      </columns>
+                                    </TableView>
+                                 </content>
+                              </ScrollPane>
+                              <HBox alignment="CENTER" prefHeight="85.0" prefWidth="632.0" spacing="20.0">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="85.0" prefWidth="220.0">
+                                       <children>
+                                          <Label text="Item Name" translateY="-3.0" />
+                                          <TextField fx:id="fieldItemName" prefHeight="28.0" prefWidth="200.0" promptText="Item" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Label text="Quantity" translateY="-3.0" />
+                                          <Spinner fx:id="spinnerQuantity" editable="false" prefHeight="18.0" prefWidth="100.0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Label text="Priority" translateY="-3.0" />
+                                          <Spinner fx:id="spinnerPriority" editable="false" prefHeight="18.0" prefWidth="100.0" />
+                                       </children>
+                                    </VBox>
+                                    <Button fx:id="buttonAddItem" defaultButton="true" minWidth="-Infinity" mnemonicParsing="false" onAction="#addItem" prefHeight="39.0" prefWidth="125.0" text="Add Item" translateY="5.0">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                                 <padding>
+                                    <Insets top="10.0" />
+                                 </padding>
+                              </HBox>
+                              <Separator prefWidth="200.0">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="10.0" />
+                                 </VBox.margin></Separator>
+                              <HBox alignment="CENTER" prefHeight="85.0" prefWidth="632.0">
+                                 <children>
+                                    <Button fx:id="buttonLoad" minWidth="-Infinity" mnemonicParsing="false" onAction="#load" prefHeight="37.0" prefWidth="185.0" text="Load Saved">
+                                       <HBox.margin>
+                                          <Insets right="20.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="buttonRemoveItem" minWidth="-Infinity" mnemonicParsing="false" onAction="#removeItem" prefHeight="37.0" prefWidth="185.0" text="Remove Item">
+                                       <HBox.margin>
+                                          <Insets right="20.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="eButtonSave" minWidth="-Infinity" mnemonicParsing="false" onAction="#save" prefHeight="37.0" prefWidth="185.0" text="Save List">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                        </VBox>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="setPrices" closable="false" text="Set Prices">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="556.0" prefWidth="632.0">
+                           <children>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="422.0" prefWidth="592.0">
+                                 <content>
+                                    <TableView fx:id="pricesTable" editable="true" prefHeight="417.0" prefWidth="592.0">
+                                    	<placeholder>
+									        <Label text="Add items or load from a saved list to edit their price" />
+									    </placeholder>
+                                       <columns>
+                                          <TableColumn fx:id="pColumnItemName" editable="false" prefWidth="200" resizable="false" sortable="false" text="Item Name" />
+                                          <TableColumn fx:id="pColumnDollars" editable="true" prefWidth="190" resizable="false" sortable="false" text="Price($)" />
+                                          <TableColumn fx:id="pColumnCents" editable="true" prefWidth="190" resizable="false" sortable="false" text="Price(¢)" />
+                                       </columns>
+                                    </TableView>
+                                 </content>
+                              </ScrollPane>
+                              <Button fx:id="pButtonSave" defaultButton="true" minWidth="-Infinity" mnemonicParsing="false" onAction="#save" prefHeight="37.0" prefWidth="607.0" text="Save Prices">
+                                 <VBox.margin>
+                                    <Insets bottom="30.0" top="30.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                        </VBox>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="goShopping" closable="false" text="Go Shopping">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="556.0" prefWidth="634.0">
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Total Budget ($)">
+                                       <HBox.margin>
+                                          <Insets right="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="fieldDollars" prefHeight="26.0" prefWidth="94.0" />
+                                    <Label text="." />
+                                    <TextField fx:id="fieldCents" prefHeight="26.0" prefWidth="59.0">
+                                       <HBox.margin>
+                                          <Insets right="100.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Button fx:id="buttonShop" defaultButton="true" mnemonicParsing="false" onAction="#shop" prefHeight="32.0" prefWidth="120.0" text="Go Shopping">
+                                       <HBox.margin>
+                                          <Insets left="120.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <Separator prefWidth="200.0">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Separator>
+                              <Label text="Purchased Items">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="378.0" prefWidth="632.0">
+                                 <content>
+                                    <TableView fx:id="purchasedTable" prefHeight="356.0" prefWidth="609.0">
+                                    	<placeholder>
+									        <Label text="When you go shopping, the items that were able to be purchased will appear here" />
+									    </placeholder>
+                                       <columns>
+                                          <TableColumn fx:id="spColumnItemName" editable="false" prefWidth="145" resizable="false" sortable="false" text="Item Name" />
+                                          <TableColumn fx:id="spColumnQuantity" editable="false" prefWidth="145" resizable="false" sortable="false" text="Quantity" />
+                                          <TableColumn fx:id="spColumnPriority" editable="false" prefWidth="145" resizable="false" sortable="false" text="Priority" />
+                                          <TableColumn fx:id="spColumnPriceCents" editable="false" prefWidth="145" resizable="false" sortable="false" text="Price" />
+                                       </columns>
+                                    </TableView>
+                                 </content>
+                              </ScrollPane>
+                              <HBox prefHeight="150.0" prefWidth="200.0">
+                                 <children>
+                                    <Label prefHeight="29.0" prefWidth="91.0" text="Remaining Items" textFill="#6f6f6f" />
+                                    <Separator opacity="0.0" prefHeight="27.0" prefWidth="296.0" />
+                                    <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="103.0" text="Remaining Budget:" />
+                                    <TextField fx:id="fieldRemaining" alignment="CENTER_RIGHT" disable="true" focusTraversable="false" prefHeight="27.0" prefWidth="102.0" />
+                                 </children>
+                              </HBox>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="378.0" prefWidth="632.0">
+                                 <content>
+                                    <TableView fx:id="remainingTable" prefHeight="356.0" prefWidth="609.0">
+                                    	<placeholder>
+									        <Label text="When you go shopping, the items that have yet to be purchased will appear here" />
+									    </placeholder>
+                                       <columns>
+                                          <TableColumn fx:id="srColumnItemName" editable="false" prefWidth="145" resizable="false" sortable="false" text="Item Name" />
+                                          <TableColumn fx:id="srColumnQuantity" editable="false" prefWidth="145" resizable="false" sortable="false" text="Quantity" />
+                                          <TableColumn fx:id="srColumnPriority" editable="false" prefWidth="145" resizable="false" sortable="false" text="Priority" />
+                                          <TableColumn fx:id="srColumnPriceCents" editable="false" prefWidth="145" resizable="false" sortable="false" text="Price" />
+                                        
+                                             </columns>
+                                    </TableView>
+                                 </content>
+                              </ScrollPane>
+                              <Button minWidth="-Infinity" mnemonicParsing="false" prefHeight="37.0" prefWidth="592.0" text="Update Shopping List With Remaining Items">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="help" closable="false" text="Help">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="554.0" prefWidth="665.0">
+                     <children>
+                        <VBox alignment="CENTER" layoutX="-2.0" prefHeight="556.0" prefWidth="634.0">
+                           <padding>
+                              <Insets bottom="30.0" left="30.0" right="50.0" top="30.0" />
+                           </padding>
+                           <children>
+                              <Label text="Need Help?" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Separator prefWidth="200.0">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Separator>
+                              <TextArea editable="false" prefHeight="476.0" prefWidth="527.0" text="Edit Items Tab&#10;a.&#9;Add item by item name, quantity(1-100), a priority(1-5, with 1 being the highest priority)&#10;b.&#9;Remove selected item&#10;c.&#9;Save list to .json file named shoppingList.json&#10;d.&#9;Load saved shopping list from shoppingList.json&#10;&#10;&#10;Set Prices Tab&#10;a.&#9;Determine the price of each item in the shopping list by dollar and cents by double clicking the price cells for each item in the table (Note: The input model rejects non numeric characters  and appropriately converts excess cents to dollars when needed)&#10;b.&#9;Save prices to shopping list and write that to .json file&#10;&#10;&#10;Go Shopping Tab&#10;a.&#9;Determine the shopping budget by dollars and cents and go shopping by priority&#10;b.&#9;Display purchased items&#10;c.&#9;Display remaining items&#10;d.&#9;Allows users option to update their shopping list and save the remaining items&#10;" wrapText="true" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </VBox>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </TabPane>
+   </children>
+</AnchorPane>
