@@ -1,0 +1,63 @@
+[debug] [2023-04-13T12:37:25.209Z] ----------------------------------------------------------------------
+[debug] [2023-04-13T12:37:25.211Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\kelly\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-04-13T12:37:25.211Z] CLI Version:   11.26.0
+[debug] [2023-04-13T12:37:25.212Z] Platform:      win32
+[debug] [2023-04-13T12:37:25.212Z] Node Version:  v18.15.0
+[debug] [2023-04-13T12:37:25.213Z] Time:          Thu Apr 13 2023 08:37:25 GMT-0400 (Eastern Daylight Time)
+[debug] [2023-04-13T12:37:25.213Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-04-13T12:37:25.216Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2023-04-13T12:37:25.267Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-13T12:37:25.267Z] > authorizing via signed-in user (kelly.geraghty@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\kelly\firebaseCs422
+
+[debug] [2023-04-13T12:37:25.551Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2023-04-13T12:37:25.552Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2023-04-13T12:38:07.561Z] > refreshing access token with scopes: []
+[debug] [2023-04-13T12:38:07.562Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-04-13T12:38:07.562Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-04-13T12:38:07.845Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-04-13T12:38:07.845Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-04-13T12:38:07.872Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2023-04-13T12:38:08.555Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2023-04-13T12:38:08.555Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project budgetapp-98454 (BudgetApp) 
+[info] 
+=== Firestore Setup
+[debug] [2023-04-13T12:38:28.750Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/budgetapp-98454/services/firestore.googleapis.com [none]
+[debug] [2023-04-13T12:38:28.750Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/budgetapp-98454/services/firestore.googleapis.com x-goog-quota-user=projects/budgetapp-98454
+[debug] [2023-04-13T12:38:29.234Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/budgetapp-98454/services/firestore.googleapis.com 200
+[debug] [2023-04-13T12:38:29.234Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/budgetapp-98454/services/firestore.googleapis.com [omitted]
+[debug] [2023-04-13T12:38:29.235Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/budgetapp-98454/databases/(default) [none]
+[debug] [2023-04-13T12:38:29.645Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/budgetapp-98454/databases/(default) 200
+[debug] [2023-04-13T12:38:29.646Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/budgetapp-98454/databases/(default) {"name":"projects/budgetapp-98454/databases/(default)","uid":"06ad92a9-803d-4999-834e-8a7ac0f37d99","createTime":"2023-04-08T19:14:15.853137Z","updateTime":"2023-04-08T19:14:15.853137Z","locationId":"nam5","type":"FIRESTORE_NATIVE","concurrencyMode":"PESSIMISTIC","appEngineIntegrationMode":"DISABLED","keyPrefix":"s","deleteProtectionState":"DELETE_PROTECTION_DISABLED","etag":"INjO3oPwpv4CMPK3j9iOo/4C"}
+[debug] [2023-04-13T12:38:29.646Z] database_type: FIRESTORE_NATIVE
+[debug] [2023-04-13T12:38:29.646Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-13T12:38:29.647Z] > authorizing via signed-in user (kelly.geraghty@gmail.com)
+[debug] [2023-04-13T12:38:29.647Z] [iam] checking project budgetapp-98454 for permissions ["firebase.projects.get"]
+[debug] [2023-04-13T12:38:29.648Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/budgetapp-98454:testIamPermissions [none]
+[debug] [2023-04-13T12:38:29.648Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/budgetapp-98454:testIamPermissions x-goog-quota-user=projects/budgetapp-98454
+[debug] [2023-04-13T12:38:29.648Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/budgetapp-98454:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2023-04-13T12:38:29.947Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/budgetapp-98454:testIamPermissions 200
+[debug] [2023-04-13T12:38:29.947Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/budgetapp-98454:testIamPermissions {"permissions":["firebase.projects.get"]}
+[info] 
+[info] Firestore Security Rules allow you to define how and when to allow
+[info] requests. You can keep these rules in your project directory
+[info] and publish them with firebase deploy.
+[info] 

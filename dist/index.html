@@ -1,0 +1,68 @@
+<!DOCTYPE html lang="en">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget App</title>
+</head>
+<body>
+    <h1> Budget App </h1>
+
+    <h2> Add an new item </h2>
+
+    <form class="add">
+        <label for="name">Name:</label>
+        <input type="text" name = "name" required>
+        <label for="price">Price:</label>
+        <input type="number" name = "price" required>
+        <label for="priority">Priority:</label>
+        <input type="number" name = "priority" required>
+        <label for="quantity">Quantity:</label>
+        <input type="number" name = "quantity" required>
+
+        
+
+        <button>Add a new item</button>
+    </form>
+
+    <form class="delete">
+        <label for="id">Item ID</label>
+        <input type="text" name="id" required>
+    
+        <button>Delete an item</button>
+    </form>
+
+    <form class="update">
+        <label for="id">Item ID:</label>
+        <input type="text" name="name" required>
+
+        <button>Update an item</button>
+    </form>
+
+    <h2>Firebase Auth</h2>
+
+    <form class="signup">
+        <label for="email">email:</label>
+        <input type="email" name="email">
+        <label for="password">password:</label>
+        <input type="password" name="password">
+        <button>signup</button>
+    </form>
+
+    <form class="login">
+        <label for="email">email:</label>
+        <input type="email" name="email">
+        <label for="password">password:</label>
+        <input type="password" name="password">
+        <button>login</button>
+      </form>
+
+    <button class="logout">logout</button>
+
+    <h2>Unsubscribing</h2>
+    <button class="unsub">unsubscribe from db/auth changes</button>
+
+    <script src="bundle.js"></script> 
+</body>
+</html>
