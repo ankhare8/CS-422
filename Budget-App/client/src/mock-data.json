@@ -1,0 +1,110 @@
+{
+    "lists": [
+        {
+            "listID": 1,
+            "name": "Birthday Wishlist",
+            "items": [
+                {
+                    "itemID": 1,
+                    "name": "Wireless headphones",
+                    "priority": 3,
+                    "quantity": 1,
+                    "price": 101197230,
+                    "link": "https://www.amazon.com/wireless-headphones"
+                },
+                {
+                    "itemID": 2,
+                    "name": "Fitness tracker",
+                    "priority": 5,
+                    "quantity": 1,
+                    "price": 80,
+                    "link": "https://www.amazon.com/fitness-tracker"
+                },
+                {
+                    "itemID": 3,
+                    "name": "Slow cooker",
+                    "priority": 2,
+                    "quantity": 1,
+                    "price": 60,
+                    "link": "https://www.amazon.com/slow-cooker"
+                }
+            ]
+        },
+        {
+            "listID": 2,
+            "name": "Christmas Wishlist",
+            "items": [
+                {
+                    "itemID": 1,
+                    "name": "Digital camera",
+                    "priority": 4,
+                    "quantity": 1,
+                    "price": 200,
+                    "link": "https://www.amazon.com/digital-camera"
+                },
+                {
+                    "itemID": 2,
+                    "name": "Wireless mouse",
+                    "priority": 3,
+                    "quantity": 1,
+                    "price": 30,
+                    "link": "https://www.amazon.com/wireless-mouse"
+                },
+                {
+                    "itemID": 3,
+                    "name": "Sneakers",
+                    "priority": 5,
+                    "quantity": 1,
+                    "price": 70,
+                    "link": "https://www.amazon.com/sneakers"
+                },
+                {
+                    "itemID": 4,
+                    "name": "Cookbook",
+                    "priority": 2,
+                    "quantity": 1,
+                    "price": 20,
+                    "link": "https://www.amazon.com/cookbook"
+                }
+            ]
+        },
+        {
+            "listID": 3,
+            "name": "Christmas Wishlist",
+            "items": [
+                {
+                    "itemID": 1,
+                    "name": "Digital camera",
+                    "priority": 4,
+                    "quantity": 1,
+                    "price": 200,
+                    "link": "https://www.amazon.com/digital-camera"
+                },
+                {
+                    "itemID": 2,
+                    "name": "Wireless mouse",
+                    "priority": 3,
+                    "quantity": 1,
+                    "price": 30,
+                    "link": "https://www.amazon.com/wireless-mouse"
+                },
+                {
+                    "itemID": 3,
+                    "name": "Sneakers",
+                    "priority": 5,
+                    "quantity": 1,
+                    "price": 70,
+                    "link": "https://www.amazon.com/sneakers"
+                },
+                {
+                    "itemID": 4,
+                    "name": "Cookbook",
+                    "priority": 2,
+                    "quantity": 1,
+                    "price": 20,
+                    "link": "https://www.amazon.com/cookbook"
+                }
+            ]
+        }
+    ]
+}
