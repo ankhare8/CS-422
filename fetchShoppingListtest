@@ -1,0 +1,43 @@
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import fetchShoppingList from './fetchShoppingList';
+
+// Mock the Firebase Firestore package
+jest.mock('firebase/firestore', () => {
+  const testData = [
+    { id: '1', name: 'Apple', price: 1.5, inventory: 10, priority: 1 },
+    { id: '2', name: 'Banana', price: 0.5, inventory: 20, priority: 2 },
+  ];
+
+  return {
+    __esModule: true,
+    default: jest.fn(() => ({
+      collection: jest.fn(() => ({
+        get: jest.fn(() =>
+          Promise.resolve({
+            forEach: (callback) => {
+              testData.forEach(callback);
+            },
+          })
+        ),
+      })),
+    })),
+  };
+});
+
+describe('fetchShoppingList', () => {
+  it('fetches shopping list data successfully', async () => {
+    const shoppingList = await fetchShoppingList();
+    expect(shoppingList).toEqual([
+      { id: '1', name: 'Apple', price: 1.5, inventory: 10, priority: 1 },
+      { id: '2', name: 'Banana', price: 0.5, inventory: 20, priority: 2 },
+    ]);
+  });
+
+  it('handles errors correctly', async () => {
+    const error = new Error('Fetch error');
+    firebase.firestore().collection().get.mockImplementationOnce(() => Promise.reject(error));
+
+    await expect(fetchShoppingList()).rejects.toThrow(error);
+  });
+});
