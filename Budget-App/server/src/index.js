@@ -1,3 +1,6 @@
+// THIS IS BROKEN BROKEN BROKEN!
+require ('dotenv').config()
+
 import { initializeApp } from 'firebase/app'
 
 import { 
@@ -13,43 +16,68 @@ import{
     onAuthStateChanged
 } from 'firebase/auth'
 
-const firebaseConfig = {
-    apiKey: "AIzaSyBokZ00Ot9fbs1vE1vYpvM22fqxTfh8Zlw",
-    authDomain: "budgetapp-98454.firebaseapp.com",
-    databaseURL: "https://budgetapp-98454-default-rtdb.firebaseio.com",
-    projectId: "budgetapp-98454",
-    storageBucket: "budgetapp-98454.appspot.com",
-    messagingSenderId: "155193614939",
-    appId: "1:155193614939:web:e0e63bd3f7e9db5847d57e",
-    measurementId: "G-WVFFLZSZ0F"
-  }
-
 //init firebase app
-initializeApp(firebaseConfig)
+initializeApp(process.env.firebaseConfig)
 
 //init services
 const db = getFirestore()
 const auth = getAuth()
 
 // collection ref
-const colRef = collection(db, 'listItems') //different from previous versions of firebase
-
+const colRef = collection(db, 'Users') 
   // queries
 
   // get docs from collection if priority is 1
  // const priority = query(colRef, where("priority", ">=", "1"), orderBy('priority', 'asc')) 
 
-   // get docs from collection in order of entry
-   const priority = query(colRef, orderBy('createdAt')) 
+  // get docs from collection for the current user
+  const priority = query(colRef, where("userId", "==", auth.currerntUser.uid), orderBy('createdAt'))
+   
+  // get docs from collection in order of entry
+  //const priority = query(colRef, orderBy('createdAt')) 
 
   // grab data and listen for changes
   const unsubCol = onSnapshot(priority, (snapshot)  => {
     let itemList = []
     snapshot.docs.forEach(doc => {
+      // push item objects into an array
         itemList.push({ ...doc.data(), id: doc.id })
     })
     console.log(itemList)
   })
+  .catch(err =>{
+    console.log(err.message)
+  })
+
+  // Create a new collection and add item
+const createListForm = document.querySelector('.create-list');
+createListForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+  // Get the form values
+  const collectionList = createListForm['collection-list'].value;
+  const itemName = createListForm['item-name'].value;
+  const itemPrice = createListForm['item-price'].value;
+  const itemQuantity = createListForm['item-quantity'].value;
+  const itemPriority = createListForm['item-priority'].value;
+  
+  // Add the collection and item to the database
+  addDoc(collection(db, 'Users', auth.currentUser.uid, collectionList), {
+    name: itemName,
+    price: itemPrice,
+    quantity: itemQuantity,
+    priority: itemPriority,
+    userId: auth.currentUser.uid,
+    createdAt: serverTimestamp()
+  })
+  .then((docRef) => {
+    console.log('Document written with ID: ', docRef.id);
+    createListForm.reset();
+  })
+  .catch((error) => {
+    console.error('Error adding document: ', error);
+  });
+});
 
   // adding item
 const addItemForm = document.querySelector('.add')
@@ -117,9 +145,20 @@ signupForm.addEventListener('submit', (e) => {
     .then(cred => {
         console.log('user created:', cred.user)
         signupForm.reset()
+        
+        // add user data to the Users collection
+        const uid = cred.user.uid
+        const usersRef = collection(db, 'Users')
+        addDoc(usersRef, {
+          userId: uid,
+          email: email
+        })
+        .then(() => {
+          console.log('User added to Users collection')
+        })
     })
     .catch(err => {
-    console.log(err.message)
+      console.log(err.message)
 
     })
 })
@@ -146,7 +185,7 @@ loginForm.addEventListener('submit', (e) => {
 
     signInWithEmailAndPassword(auth, email, password)
         .then(cred => {
-  //      console.log('user logged in:', cred.user)
+        console.log('user logged in:', cred.user)
         loginForm.reset()
     })
     .catch((err) => {
@@ -154,19 +193,36 @@ loginForm.addEventListener('submit', (e) => {
     })
 })
 
-// subscribing to auth changes
-const unsubAuth = onAuthStateChanged(auth, (user) => {
-    console.log('user status changed:', user)
-})
+// // subscribing to auth changes
+// const unsubAuth = onAuthStateChanged(auth, (user) => {
+//     console.log('user status changed:', user)
+// })
 
-// unscribing from changes (auth & db)
-const unsubButton = document.querySelector('.unsub')
-unsubButton.addEventListener('click', () => {
-    console.log('unsubscribing')
-    unsubCol()
-    unsubAuth()
-    unSubDoc()
+// // unscribing from changes (auth & db)
+// const unsubButton = document.querySelector('.unsub')
+// unsubButton.addEventListener('click', () => {
+//     console.log('unsubscribing')
+//     unsubCol()
+//     unsubAuth()
+//     unSubDoc()
 
 
 
-})
+//})
+
+// Function to create a new collection with a given name and add items to it
+async function createCollectionAndAddItems(collectionName, items) {
+  // Get the authenticated user
+  const user = auth.currentUser
+
+  // Create a new collection with the given name and user ID as the document ID
+  const collectionRef = doc(db, 'Users', user.uid, 'collections', collectionName)
+  await setDoc(collectionRef, { name: collectionName })
+
+  // Add the items to the collection
+  for (const item of items) {
+    await addDoc(collection(collectionRef, 'items'), item)
+  }
+
+  console.log('Collection created and items added successfully')
+}
