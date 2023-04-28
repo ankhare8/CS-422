@@ -1,8 +1,19 @@
 
-//NOTE: this route may not be neccessary, we may just be able to do this client-side in the react
-//stay tuned....
+const admin = require('firebase-admin');
+require ('dotenv').config()
+
+//create a new firestore doc for the user
 const createNewUserDoc = async (req, res) => {
-    const {uid, email} = req.body;
+    try {
+        const { uid } = req.user;
+        await admin.firestore().collection('users').doc(uid).set({
+        user: uid
+        });
+        console.log('User document created successfully');
+    } catch (error) {
+        console.error('Error creating user document:', error);
+        throw new Error('Error creating user document: ' + error.message);
+    }
 }
 
 module.exports = {
