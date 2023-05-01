@@ -31,13 +31,13 @@ const colRef = collection(db, 'Users')
  // const priority = query(colRef, where("priority", ">=", "1"), orderBy('priority', 'asc')) 
 
   // get docs from collection for the current user
-  const priority = query(colRef, where("userId", "==", auth.currerntUser.uid), orderBy('createdAt'))
+  const userList = query(colRef, where("userId", "==", auth.currentUser.uid), orderBy('createdAt'))
    
   // get docs from collection in order of entry
   //const priority = query(colRef, orderBy('createdAt')) 
 
-  // grab data and listen for changes
-  const unsubCol = onSnapshot(priority, (snapshot)  => {
+  // grab data and listen for changes (real-time listener)
+  const listListener = onSnapshot(userList, (snapshot)  => {
     let itemList = []
     snapshot.docs.forEach(doc => {
       // push item objects into an array
@@ -107,10 +107,13 @@ deleteItemForm.addEventListener('submit', (e) => {
     .then(() => {
       deleteItemForm.reset()
     })
+    .catch((error) => {
+      console.error('Error deleting item: ', error);
+    });
 })
 
 // get a single document
-const docRef =  doc(db, 'listItems', '6tSFMuK8ks8xgspFYXqt')
+//const docRef =  doc(db, 'listItems', '6tSFMuK8ks8xgspFYXqt')
 
 const unSubDoc = onSnapshot(docRef, (doc) => {
     console.log(doc.data(), doc.id)
@@ -149,6 +152,8 @@ signupForm.addEventListener('submit', (e) => {
         // add user data to the Users collection
         const uid = cred.user.uid
         const usersRef = collection(db, 'Users')
+        
+
         addDoc(usersRef, {
           userId: uid,
           email: email

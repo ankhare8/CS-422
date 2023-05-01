@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require('express'); //for http requests
 const verifyToken = require('../middleware/verifyToken')
 const userController = require('../controllers/userController')
 const listController = require('../controllers/listController')
@@ -9,6 +9,7 @@ router.post('/newUser', userController.createNewUserDoc);
 
 
 //wishlist routes
+// router = express router
 router.get('/alllists', verifyToken, userController.getAllLists);
 router.get('/list', verifyToken, listController.getList);
 router.post('/list', verifyToken, listController.postList);

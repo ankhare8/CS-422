@@ -2,6 +2,7 @@
 
 //return all lists
 const getAllLists = async (req, res) => {
+    // we get request from user, send response back, express will take care of it
     try{
         const userId = req.user.uid;
         const wishlistRef = admin.firestore().collection('users').doc(userId).collection('wishlist');
@@ -13,6 +14,10 @@ const getAllLists = async (req, res) => {
     }
    
 }
+
+// function similar to get All Lists
+// get snapshot of list with id
+
 
 //get all items within list
 const getList = async (req, res) => {
