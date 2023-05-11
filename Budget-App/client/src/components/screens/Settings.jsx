@@ -14,9 +14,40 @@ export default function Settings() {
     const [plan, setPlan] = useState('')
     let originalName = ''
     const navigate = useNavigate()
+
+
+    useEffect(()=>{
+        setLoading(true);
+        const getUserData = async () => {
+            try{
+                const idToken = await currentUser.getIdToken(true);
+                const response = await axios.get(apiUrl + '/getuser', {
+                    headers: {
+                      Authorization: `Bearer ${idToken}`,
+                    }
+                });
+                const data = await response.data
+                setName(data.name)
+                originalName = data.name
+                setEmail(data.email)
+                setPlan(data.subscription_tier)
+                
+            }catch(error){
+                console.log(error);
+            }finally{
+                setLoading(false);
+            }
+        };
+        if(currentUser){
+            getUserData();
+            
+        }    
+    }, [currentUser])
+
     if(!currentUser){
         return <Navigate to="/login" />;
     }
+    
     const handleUserUpdate =  async ()=>{
         setName(name.trim())
         if(name.length > 0 && name != originalName){
@@ -59,34 +90,6 @@ export default function Settings() {
     const handleLogout = ()=>{
         navigate('/logout')
     }
-
-    useEffect(()=>{
-        setLoading(true);
-        const getUserData = async () => {
-            try{
-                const idToken = await currentUser.getIdToken(true);
-                const response = await axios.get(apiUrl + '/getuser', {
-                    headers: {
-                      Authorization: `Bearer ${idToken}`,
-                    }
-                });
-                const data = await response.data
-                setName(data.name)
-                originalName = data.name
-                setEmail(data.email)
-                setPlan(data.subscription_tier)
-                
-            }catch(error){
-                console.log(error);
-            }finally{
-                setLoading(false);
-            }
-        };
-        if(currentUser){
-            getUserData();
-            
-        }    
-    }, [currentUser])
 
     return (
         currentUser && 

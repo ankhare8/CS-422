@@ -37,18 +37,6 @@ export default function Add () {
   const [name, setName] = useState('Untitled Wishlist');
   const navigate = useNavigate();
 
-  if(!currentUser){
-    return <Navigate to="/login" />;
-  }
-  const handleAddFormChange = (event) => {
-    const fieldName = event.target.getAttribute("name");
-    const fieldValue = event.target.value;
-
-    const newFormData = {...addFormData}
-    newFormData[fieldName] = fieldValue;
-    setAddFormData(newFormData)
-  }
-
   useEffect(() => {
     if (validLink) {
       setError('')
@@ -91,6 +79,18 @@ export default function Add () {
       ;
     }
   }, [validLink]);
+
+  if(!currentUser){
+    return <Navigate to="/login" />;
+  }
+  const handleAddFormChange = (event) => {
+    const fieldName = event.target.getAttribute("name");
+    const fieldValue = event.target.value;
+
+    const newFormData = {...addFormData}
+    newFormData[fieldName] = fieldValue;
+    setAddFormData(newFormData)
+  }
 
   const handleLinkChange = (event) => {
     const linkRegex = /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/;

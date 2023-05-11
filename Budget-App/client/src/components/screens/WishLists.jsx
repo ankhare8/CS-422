@@ -186,7 +186,7 @@ export default function WishLists() {
                         </div>
                     </section>
                     {
-                        selectedList && <PreviewModal list={selectedList} listModalIsOpen={listModalIsOpen} handleModalClose={handleCloseModal}/>
+                        selectedList && <PreviewModal list={selectedList} listModalIsOpen={listModalIsOpen} handleModalClose={handleCloseModal} handleListEditClick={handleListEditClick}/>
                     }
                     <div
                         className="absolute inset-x-0 -z-10 transform-gpu overflow-hidden blur-3xl top-[calc(100%-50rem)]"

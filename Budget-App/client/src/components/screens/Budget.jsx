@@ -20,10 +20,6 @@ export default function Budget() {
     const [budget, setBudget] = useState(20);
     const [remainingBudget, setRemainingBudget] = useState(null);
 
-    if(!currentUser){
-        return <Navigate to="/login" />;
-    }
-
     useEffect(() => {
         const getMeta = async () => {
             try{
@@ -46,6 +42,9 @@ export default function Budget() {
         }
     }, [currentUser]);
 
+    if(!currentUser){
+        return <Navigate to="/login" />;
+    }
 
     const handleSelect = (selectedOptions) => {
         setSelectedLists(selectedOptions);
@@ -110,7 +109,7 @@ export default function Budget() {
                         }
                     });
                     
-                    if (response.status != 200){
+                    if (response.status !== 200){
                         throw new Error("Invalid response")
                     }
                 }catch(error){
@@ -136,7 +135,7 @@ export default function Budget() {
                         }
                     });
                     
-                    if (response.status != 200){
+                    if (response.status !== 200){
                         throw new Error("Invalid response")
                     }
                 }catch(error){
@@ -187,7 +186,7 @@ export default function Budget() {
             // console.log(toUpdate);
             
             //if theres only one parent wishlist selected
-            if(selectedLists.length == 1){
+            if(selectedLists.length === 1){
                 const delItemIds = toDelete.map((obj) => obj.id);
                 try{
                     const delBody = {
