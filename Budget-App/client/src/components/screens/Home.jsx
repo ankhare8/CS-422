@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 export default function Home() {
     return (
       <div className="mx-4 pageContainer">
@@ -5,7 +6,7 @@ export default function Home() {
             <div className="mb-8 flex justify-center text-center">
               <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-200 ring-1 ring-gray-200/10 hover:ring-gray-200/20">
                 Getting started on your responsible spending journey?{' '}
-                <a href="https://consumer.gov/managing-your-money/making-budget" target="blank" className="font-semibold text-indigo-400">
+                <a href="https://consumer.gov/managing-your-money/making-budget" target="blank" className="font-semibold text-purple-400 hover:text-purple-600">
                   <span className="absolute inset-0" aria-hidden="true" />
                   Check Out These Resources <span aria-hidden="true">&rarr;</span>
                 </a>
@@ -21,13 +22,13 @@ export default function Home() {
               <div className="mt-10 flex items-center justify-center gap-x-6">
                 <a
                     href="/demo"
-                    className="rounded-md bg-indigo-500 py-2 px-3.5 text-sm font-semibold text-white hover:text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                    className="rounded-md bg-purple-500 py-2 px-3.5 text-sm font-semibold text-white hover:text-white hover:bg-purple-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500"
                 >
                   View Demo
                 </a>
-                <a href="/about" className="text-sm font-semibold leading-6 text-indigo-400">
+                <Link to="/about" className="text-sm font-semibold leading-6 text-purple-400 hover:text-purple-600">
                   About Us <span aria-hidden="true">→</span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

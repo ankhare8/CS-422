@@ -1,9 +1,38 @@
+import { useState, useContext} from 'react';
+import { Link, Navigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { LockClosedIcon } from '@heroicons/react/20/solid'
-import { useState} from 'react';
+import { AuthContext } from '../../util/authContext';
 
 export default function ForogtPassword() {
+  const { currentUser, sendPasswordEmail } = useContext(AuthContext);
   const [email, setEmail] = useState('');
 
+  if(currentUser){
+    return <Navigate to="/wishlists" />;
+  }
+
+  const handleForgotPasswordSubmit = async (event) => {
+    event.preventDefault();
+    setEmail(email.trim())
+
+    if(email.length > 0){
+      const response = await sendPasswordEmail(email);
+      if (response.success){
+        toast.success(response.success, {
+          position: toast.POSITION.TOP_RIGHT
+        });
+      } else{
+        toast.error(response.error, {
+          position: toast.POSITION.TOP_RIGHT
+        });
+      }
+    } else{
+      toast.error('Please provide your email', {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    }
+  }
 
   return (
     <div className="mx-4 pageContainer">
@@ -28,7 +57,9 @@ export default function ForogtPassword() {
                   type="email"
                   autoComplete="email"
                   required
-                  className="relative block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="relative block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-purple-500 sm:text-sm sm:leading-6"
                   placeholder="Email address"
                 />
               </div>
@@ -36,18 +67,19 @@ export default function ForogtPassword() {
 
             <p className="mt-2 text-center text-sm text-gray-200">
                 Remembered?{' '}
-                <a href="/login" className="font-medium text-indigo-500 hover:text-indigo-500">
+                <Link to="/login" className="font-medium text-purple-500 hover:text-purple-500">
                     Login
-                </a>
+                </Link>
             </p>
 
             <div>
               <button
-                type="submit"
-                className="group relative flex w-full justify-center rounded-md bg-indigo-500 py-2 px-3 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                type="button"
+                onClick={(event)=>handleForgotPasswordSubmit(event)}
+                className="group relative flex w-full justify-center rounded-md bg-purple-500 py-2 px-3 text-sm font-semibold text-white hover:bg-purple-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500"
               >
                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                  <LockClosedIcon className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" aria-hidden="true" />
+                  <LockClosedIcon className="h-5 w-5 text-purple-500 group-hover:text-purple-400" aria-hidden="true" />
                 </span>
                 Send Recovery Email
               </button>

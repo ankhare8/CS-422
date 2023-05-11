@@ -1,16 +1,13 @@
 const express = require('express');
 const app = express();
-const admin = require('firebase-admin');
-require('dotenv').config();
+const cors = require('cors');
 
+require('dotenv').config();
+require('./firebase')
 
 app.use(cors());
-
 app.use(express.json());
-
-admin.initializeApp(process.env.firebaseConfig);
-
-app.require('./routes');
+app.use(require('./routes'));
 
 module.exports = app;
 

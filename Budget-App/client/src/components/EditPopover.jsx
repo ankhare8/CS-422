@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 import { EllipsisVerticalIcon } from"@heroicons/react/20/solid";
 
-export default function EditPopover() {
-  const [menuOpen, setMenuOpen] = useState(false); // Add state variable and setter function
+export default function EditPopover({handleEditClick, handleDeleteClick, item}) {
+  const [menuOpen, setMenuOpen] = useState(false);
+  // console.log(item)
 
   return (
     <Popover onBlur={() => {
@@ -30,19 +31,21 @@ export default function EditPopover() {
               static
               className="origin-top-left absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
             >
-              <div className="py-1">
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              <div className="py-1 text-left">
+                <button
+                  className="w-full pr-auto py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  type="button"
+                  onClick={(event)=>{handleEditClick(event, item)}}
                 >
                   Edit
-                </a>
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                </button>
+                <button
+                  type="button"
+                  className="w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  onClick={(event)=>{handleDeleteClick(event, item)}}
                 >
                   Delete
-                </a>
+                </button>
               </div>
             </Popover.Panel>
           </Transition>

@@ -33,7 +33,7 @@ export default function PreviewModal (props) {
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <div className="inline-block w-full max-w-6xl my-10 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+            <div className="inline-block w-full max-w-4xl my-10 overflow-x-auto text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
               <div className="absolute top-0 right-0 pt-4 pr-4">
                 <button
                   type="button"
@@ -53,34 +53,30 @@ export default function PreviewModal (props) {
                   <PencilSquareIcon className="w-6 h-6 text-gray-200 ml-2 mb-1 mr-auto" onClick={()=> props.handleEditClick(props.list)}/>
                 </div>
                 <table className="border-collapse w-full overflow-scroll table-auto text-gray-500">
-                    <colgroup>
-                        <col className="w-auto" /> {/* For Name column */}
-                        <col className="w-32" /> For Link column
-                        <col className="w-32" /> {/* For Price column */}
-                        <col className="w-32" /> {/* For Quantity column */}
-                        <col className="w-32" /> {/* For Priority column */}
-                    </colgroup>
-                    <thead>
-                        <tr className="bg-gray-50 border-b">
-                        <th className="text-left p-3 font-bold w-full">Name</th>
-                        {/* <th className="text-left p-3 font-bold">Link</th> */}
-                        <th className="text-left p-3 font-bold">Price</th>
-                        <th className="text-left p-3 font-bold">Quantity</th>
-                        <th className="text-left p-3 font-bold">Priority</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {props.list.items && (props.list.items.map((item) => (
-                        <tr key={item.id} className="bg-white border-b">
-                            <td className="p-3 "><a href={item.link}>{item.name}</a></td>
-                            {/* <td className="p-3 truncate"><a href={item.link}>{item.link}</a></td> */}
-                            <td className="p-3">${item.price}</td>
-                            <td className="p-3">{item.quantity}</td>
-                            <td className="p-3">{item.priority}</td>
-                        </tr>
-                        )))}
-                    </tbody>
-                    </table>
+                  <thead>
+                    <tr className="bg-gray-50 border-b">
+                      <th className="text-left p-3 font-bold w-full">Name</th>
+                      {/* <th className="text-left p-3 font-bold">Link</th> */}
+                      <th className="text-left p-3 font-bold">Price</th>
+                      <th className="text-left p-3 font-bold">Quantity</th>
+                      <th className="text-left p-3 font-bold">Priority</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {props.list.items && (props.list.items.map((item) => (
+                      <tr key={item.id} className="bg-white border-b">
+                        { item.link.length > 0 ? (
+                          <td className="p-3"><a href={item.link}>{item.name}</a></td>
+                        ) : (
+                          <td className="p-3">{item.name}</td>
+                        )} 
+                          <td className="p-3">${item.price}</td>
+                          <td className="p-3 text-center">{item.quantity}</td>
+                          <td className="p-3 priority" data-priority={item.priority}></td>
+                      </tr>
+                      )))}
+                  </tbody>
+                </table>
               </div>
             </div>
           </Transition.Child>
