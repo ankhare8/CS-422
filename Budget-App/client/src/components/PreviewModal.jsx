@@ -50,7 +50,7 @@ export default function PreviewModal (props) {
                     <div className="text-sm font-light text-gray-300"> Quick View </div>
                     <div className="text-xl font-bold">{props.list.name}</div>
                 </div>
-                  <PencilSquareIcon className="w-6 h-6 text-gray-200 ml-2 mb-1 mr-auto" onClick={()=> props.handleEditClick(props.list)}/>
+                  <PencilSquareIcon className="w-6 h-6 text-gray-200 ml-2 mb-1 mr-auto" onClick={()=> props.handleListEditClick(props.list)}/>
                 </div>
                 <table className="border-collapse w-full overflow-scroll table-auto text-gray-500">
                   <thead>

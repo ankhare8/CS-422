@@ -37,7 +37,7 @@ export default function budgetItems(data, budget) {
       } 
       
       // console.log("budget: " + budget)
-      if (budget == 0) {
+      if (budget === 0) {
         break;
       }
     }

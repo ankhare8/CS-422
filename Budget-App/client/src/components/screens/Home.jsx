@@ -17,7 +17,7 @@ export default function Home() {
                 Welcome to Budgeter
               </h1>
               <p className="mt-6 text-md leading-8 text-gray-200">
-              Financial independnce and empowerment start with responsible spending habits and careful budgeting. Budgeter is here to make it easier for you to get items on your wishlist while staying within your budget.
+              Financial independence and empowerment start with responsible spending habits and careful budgeting. Budgeter is here to make it easier for you to get items on your wishlist while staying within your budget.
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
                 <a

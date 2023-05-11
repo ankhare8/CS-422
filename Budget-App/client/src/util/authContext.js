@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const res = await signInWithPopup(auth, googleProvider);
       // console.log(res);
-      const token = await res.user.getIdToken(true);
+      // const token = await res.user.getIdToken(true);
       // console.log(token);
       setCurrentUser(res.user);
   

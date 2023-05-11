@@ -47,7 +47,7 @@ export default function Settings() {
     if(!currentUser){
         return <Navigate to="/login" />;
     }
-    
+
     const handleUserUpdate =  async ()=>{
         setName(name.trim())
         if(name.length > 0 && name != originalName){
@@ -151,7 +151,7 @@ export default function Settings() {
                             <a href="mailto:ankhare8@gmail.com">• Reach out to our Developer</a>
                         </div>
                         <div className="mr-auto">
-                            <a href="https://github.com/ankhare8/CS-422/issues">• Report a Bug</a>
+                            <a href="https://github.com/ankhare8/CS-422/issues" target="blank">• Report a Bug</a>
                         </div>
                     </div>
                 </div>
