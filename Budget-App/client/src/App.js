@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from 'react';
-import { BrowserRouter as Router, NavLink, Route, Routes, RouterProvider, createBrowserRouter } from 'react-router-dom';
+
+import { BrowserRouter as Router, Route, Routes, createBrowserRouter } from 'react-router-dom';
 import Header from './components/Header';
 import NavBar from './components/Navbar';
 import Home from './components/screens/Home'
@@ -15,8 +15,7 @@ import Settings from './components/screens/Settings';
 import About from './components/screens/About';
 import Budget from './components/screens/Budget';
 import Add from './components/screens/Add';
-
-console.log(process.env.REACT_APP_apiUrl)
+import Demo from './components/screens/Demo';
 
 const routes = [
   { 
@@ -27,6 +26,10 @@ const routes = [
   { 
     path: "/about",
     element: <About />,
+  },
+  { 
+    path: "/demo",
+    element: <Demo />,
   },
   { 
     path: "/login",

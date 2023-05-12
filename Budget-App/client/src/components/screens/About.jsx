@@ -4,49 +4,18 @@ const teamData = [
         "photo": "https://anshitakhare.com/project-repo-media/anshita.png",
         "name": "Anshita Khare",
         "role": "Software Development and Design",
-        "blurb": "I had a lot of fun working on the frontend, backend, and database portion of this project using the Node.js, Express, React and Firestore and Firebase microervices for user authentication",
+        "blurb": "I had a lot of fun working on this project using Node.js, Express, React and Firestore and Firebase microervices for user authentication. My goal was to create a user-friendly and and intuitive interface that allowed users to keep track of things that they want to buy while also helping them make the most prudent pruchasing decisions within a given budget.Here are some of my favorite things about it",
         "ul": [
-          "All uploaded documentation is stored in a Google Drive folder that can be accessed by the admins and manually manipulated if needed. This was done using the Google Drive API and a Google service account",
-          "When projects with a Github link are uploaded, language tags and automatically retrieved by making a query to the Github API the using the path in the supplied URL.",
-          "When users click on a wishlist, a unique identifier is added to the URI using a hash fragment. This enables users to save links to specific lists knowing that that link is opened the same modal will be visible",
+          "I added a pretty cool budgeting feature that is able to accept multiple wishlists and a desired budget amount as input. This feature first combines all lists and sorts through them, reccomending only the highest priority items. After this the data is displayed in two tables, reccomended and remaining. The user can then manually select which items were purchased and the respective parent wishlists of those items will be updated accordingly",
+          "After looking at predictable trends in the HTML formatting of ecommerce websites built using Shopify and Amazon, I wrote a function that can extract the name and price for an item when a valid link is entered.",
+          "When users click on a wishlist, a unique identifier is added to the URI using a hash fragment. This enables users to bookmark links to specific wishlists and can easily refer back to them as they desire",
+          "Within the database, ",
           "This website is fully responsive"
         ],
         "linkedin": "https://www.linkedin.com/in/an-khare-1051a4260",
         "email": "mailto: ankhare8@gmail.com",
         "website": "https://anshitakhare.com"
     },
-    {
-      "photo": "https://anshitakhare.com/project-repo-media/rigo.png",
-      "name": "Rigoberto Rosa",
-      "role": "Requirements, Software Development, Testing",
-      "blurb": "With this project I delved into the world of backend development, honing my skills and expertise in MongoDB, Express, and Node.js. Additionally, I had the opportunity to learn about unit testing, which helped me ensure the reliability and stability of our code. This journey has further fueled my enthusiasm for computer science and its ability to shape the future.",
-      "linkedin": "www.linkedin.com/in/rigobertorosa",
-      "email": "mailto:rigorosa@bu.edu"
-    },
-    {
-        "photo": "https://anshitakhare.com/project-repo-media/soi.png",
-        "name": "Supawadee Phakdee",
-        "role": "Project Management",
-        "blurb": "As the project manager, I ensured that all project aspects were well-planned, documented, and executed for a successful delivery. My key activities included developing and maintaining a Configuration Items List to track project components, creating personas to understand the target audience, maintaining an Estimation Record to track progress, developing Use Cases to define features, and creating a State Transition Diagram to map component interactions over time. I also ensured effective integration of all tools and technologies by creating a Tool Connectivity Diagram",
-        "linkedin": "https://www.linkedin.com/in/supawadee-phakdee/",
-        "email": "mailto:souy.supawadee@gmail.com"
-    },
-    {
-        "photo": "https://anshitakhare.com/project-repo-media/marouan.png",
-        "name": "Marouan Boussif",
-        "role": "Testing",
-        "blurb": "For this project, I used libraries like HTTPMocks to test project routes in the server. Remember, every day is a new opportunity to learn, grow, and make a difference",
-        "linkedin": "https://www.linkedin.com/in/marouan-boussif-790004118/",
-        "email": "mailto:marouan_usa2008@outlook.fr"
-    },
-    {
-        "photo": "https://anshitakhare.com/project-repo-media/ayoub.png",
-        "name": "Ayoub Amghar",
-        "role": "Wireframes",
-        "blurb": "I experimented with Adobe XD but ultimately used Balsamiq to create wireframes for this project. I carefully positioned each element and adjusted their properties to create a detailed wireframe that accurately represented the app's functionality and layout. Once I was satisfied with the wireframe, I exported it as a PDF and shared it with our team for feedback.",
-        "linkedin": "https://www.linkedin.com/in/ayoub-amghar-494910182/",
-        "email": "mailto:amghar1a@bu.edu"
-    }
 ]
 
 export default function About() {

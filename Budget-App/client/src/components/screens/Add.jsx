@@ -5,7 +5,7 @@ import ReadOnlyRow from "../ReadOnlyRow";
 import EditableRow from "../EditableRow";
 import Loading from "../Loading";
 import {nanoid} from 'nanoid';
-import { Navigate, useNavigate, Link } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../util/authContext";
 import axios from "axios";
 import { apiUrl } from "../../config/apiUrl";
