@@ -9,7 +9,6 @@ const teamData = [
           "I added a pretty cool budgeting feature that is able to accept multiple wishlists and a desired budget amount as input. This feature first combines all lists and sorts through them, reccomending only the highest priority items. After this the data is displayed in two tables, reccomended and remaining. The user can then manually select which items were purchased and the respective parent wishlists of those items will be updated accordingly",
           "After looking at predictable trends in the HTML formatting of ecommerce websites built using Shopify and Amazon, I wrote a function that can extract the name and price for an item when a valid link is entered.",
           "When users click on a wishlist, a unique identifier is added to the URI using a hash fragment. This enables users to bookmark links to specific wishlists and can easily refer back to them as they desire",
-          "Within the database, ",
           "This website is fully responsive"
         ],
         "linkedin": "https://www.linkedin.com/in/an-khare-1051a4260",
@@ -25,12 +24,12 @@ export default function About() {
             <h1 className="font-bold tracking-tight text-white-200 text-xl pb-4 custom-border-bottom">
                 Learn More
             </h1>
-            <p>
+            <p className='mt-4'>
             <span className='font-semibold text-purple-200'>Why? </span> In the age of Klarna and Afterpay, it is more important than ever to practice responsible spending habits. With Budgeter, you can create wishlists and prioritize your spending within a budget, ensuring that you are not overspending or going into debt. Make more informed purchasing decisions and maintain financial well-being in the long run — with Budgeter
             </p>
 
             <div className='mt-8'>
-              <a href="https://www.beautiful.ai/player/-NV0MmTVC6KjtKOZ3Dkt">Browse Our Full Project Prentation</a>
+              <a href="https://www.beautiful.ai/player/-NV0MmTVC6KjtKOZ3Dkt">View Our Full Project Presentation</a>
             </div>
                
 
