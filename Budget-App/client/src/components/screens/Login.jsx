@@ -78,7 +78,7 @@ export default function Login() {
               className="group relative flex w-full justify-center rounded-md bg-white py-2 px-3 text-sm font-semibold text-black hover:bg-purple-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500"
             >
               <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2008px-Google_%22G%22_Logo.svg.png" className="w-6 h-6" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" className="w-6 h-6" />
               </span>
               Continue with Google
             </button>

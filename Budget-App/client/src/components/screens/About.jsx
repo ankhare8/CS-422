@@ -4,7 +4,7 @@ const teamData = [
         "photo": "https://anshitakhare.com/project-repo-media/anshita.png",
         "name": "Anshita Khare",
         "role": "Software Development and Design",
-        "blurb": "I had a lot of fun working on this project using Node.js, Express, React and Firestore and Firebase microervices for user authentication. My goal was to create a user-friendly and and intuitive interface that allowed users to keep track of things that they want to buy while also helping them make the most prudent pruchasing decisions within a given budget.Here are some of my favorite things about it",
+        "blurb": "I had a lot of fun working on this project using Node.js, Express, React and Firestore and Firebase microservices for user authentication. My goal was to create a user-friendly and and intuitive interface that allowed users to keep track of things that they want to buy while also helping them make the most prudent pruchasing decisions within a given budget.Here are some of my favorite things about it",
         "ul": [
           "I added a pretty cool budgeting feature that is able to accept multiple wishlists and a desired budget amount as input. This feature first combines all lists and sorts through them, reccomending only the highest priority items. After this the data is displayed in two tables, reccomended and remaining. The user can then manually select which items were purchased and the respective parent wishlists of those items will be updated accordingly",
           "After looking at predictable trends in the HTML formatting of ecommerce websites built using Shopify and Amazon, I wrote a function that can extract the name and price for an item when a valid link is entered.",

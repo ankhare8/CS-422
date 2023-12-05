@@ -84,7 +84,7 @@ export default function Budget() {
                     setRemaining(results.remaining.reverse());
                     setBudgeted(true);
                     setSelectedReccItems(results.recommended);
-                    setRemainingBudget(results.budget);
+                    setRemainingBudget(Math.round((results.budget + Number.EPSILON) * 100) / 100);
                     
                 }catch(error){
                     console.log(error);
