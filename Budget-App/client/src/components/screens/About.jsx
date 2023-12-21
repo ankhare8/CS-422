@@ -29,7 +29,7 @@ export default function About() {
             </p>
 
             <div className='mt-8'>
-              <a href="https://www.beautiful.ai/player/-NV0MmTVC6KjtKOZ3Dkt">View Our Full Project Presentation</a>
+              <a href="https://mysterious-cover-7da.notion.site/Coming-Soon-1810f0a236984b219048f06af4487ffb?pvs=4">View Our Full Project Presentation</a>
             </div>
                
 

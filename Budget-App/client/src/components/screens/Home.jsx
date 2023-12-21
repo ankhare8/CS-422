@@ -20,12 +20,12 @@ export default function Home() {
               Financial independence and empowerment start with responsible spending habits and careful budgeting. Budgeter is here to make it easier for you to get items on your wishlist while staying within your budget.
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
-                <a
+                <Link to
                     href="/demo"
                     className="rounded-md bg-purple-500 py-2 px-3.5 text-sm font-semibold text-white hover:text-white hover:bg-purple-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500"
                 >
                   View Demo
-                </a>
+                </Link>
                 <Link to="/about" className="text-sm font-semibold leading-6 text-purple-400 hover:text-purple-600">
                   About Us <span aria-hidden="true">→</span>
                 </Link>
